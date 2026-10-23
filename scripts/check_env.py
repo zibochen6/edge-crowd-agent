@@ -24,7 +24,8 @@ args=parser.parse_args()
 checks=[]
 def check(name,ok,detail):checks.append({'name':name,'ok':bool(ok),'detail':str(detail)})
 check('Python 3.10',sys.version_info[:2]==(3,10),sys.version.split()[0])
-check('uv',shutil.which('uv'),shutil.which('uv') or 'Install uv and add it to PATH')
+uv_path=os.getenv('UV_BIN') or shutil.which('uv') or str(Path.home()/'.local/bin/uv')
+check('uv',Path(uv_path).is_file() and os.access(uv_path,os.X_OK),uv_path)
 for module in ['fastapi','uvicorn','pydantic','httpx','cv2','numpy','supervision']:
     try:
         loaded=importlib.import_module(module);check(module,True,getattr(loaded,'__version__','import OK'))
