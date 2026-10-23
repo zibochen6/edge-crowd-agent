@@ -1,0 +1,50 @@
+/* The video and report have separate clocks and independent controls. */
+.app-shell>main{padding-top:20px}.intro{margin-bottom:20px}.intro h1{font-size:30px}.intro p{font-size:12px}.intro-proof strong{font-size:32px}
+.comparison .lanes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:stretch}
+.comparison .pipeline-lane{display:flex;flex-direction:column;padding:16px 16px 0;min-width:0}
+.comparison .lane-heading{align-items:flex-start;min-height:47px}
+.comparison .lane-heading>div:first-child{display:block}
+.comparison .lane-heading strong{font-size:22px;line-height:1.2;display:block}
+.comparison .lane-heading small{display:block;margin-top:5px;font-size:10px;color:#9aafbd}
+.comparison .lane-time{display:block;text-align:right}
+.comparison .lane-time>b{font-size:27px}
+.comparison .lane-time>b>small{display:inline;font-size:11px}
+.comparison .lane-time>span{display:block;font-size:10px;margin-top:5px}
+.comparison .pipeline-steps{margin:16px 0 14px;gap:9px}
+.comparison .phase{flex-direction:column;gap:7px;font-size:10px;white-space:nowrap}
+.comparison .phase-icon{height:28px;width:28px}
+.comparison .phase-arrow{right:-12px;top:7px;width:13px}
+.comparison .lane-output{display:block;min-height:0;padding-top:12px;border-top-color:#3c5263}
+.comparison .on .lane-output{border-top-color:#426955}
+.analysis-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;color:#d2e0eb}
+.analysis-heading>span{font-size:12px;font-weight:600;display:flex;align-items:center;gap:7px}
+.analysis-heading button.text-button{font-size:10px;min-height:20px;padding:0}
+.comparison .report-preview{height:260px;font-size:14px;line-height:1.75;white-space:normal;color:#d0dde7;scrollbar-width:thin;padding-right:6px;overflow:auto}
+.comparison .report-preview.has-report{color:#d4e1ea}
+.comparison .on .report-preview.has-report{color:#d1e6db}
+.comparison .report-preview::-webkit-scrollbar{display:block;width:3px}
+.analysis-section{margin-bottom:15px}.analysis-section:last-child{margin-bottom:0}
+.analysis-section h3{font-size:11px;letter-spacing:.4px;color:#90a7ba;margin:0 0 5px;font-weight:500}
+.analysis-section p{margin:0;white-space:pre-wrap;overflow-wrap:anywhere}
+.analysis-section.conclusion{border-left:2px solid #dba85d;padding:10px 12px;background:#b7833f12;border-radius:0 5px 5px 0;margin-bottom:16px}
+.analysis-section.conclusion h3{color:#f0bf7c;font-size:12px;margin-bottom:7px}
+.analysis-section.conclusion p{font-size:15px;line-height:1.7;color:#f0e2ce;font-weight:500}
+.analysis-placeholder{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:14px;min-height:240px;color:#718ca1;padding:12px}
+.analysis-placeholder strong{color:#b0c6d6;font-size:15px;font-weight:500}
+.analysis-placeholder p{margin:0;font-size:12px;line-height:1.9;max-width:270px;color:#8aa2b6}
+.comparison .lane-bottom{font-size:9px;padding:14px 0 12px;gap:10px;margin-top:auto}
+.comparison .tool-checks{gap:9px}
+.comparison .duration-track{margin-left:-16px;margin-right:-16px}
+.comparison .live-summary{min-height:90px;padding:18px 20px;gap:10px}
+.comparison .live-summary p{max-width:650px}.comparison .comparison-metrics{padding-top:18px;padding-bottom:18px}
+.occupancy>p{font-size:12px;line-height:1.7;color:#a9bfce}
+.live-result{min-height:76px}.video-top>span:first-child{font-weight:600;letter-spacing:.4px}
+@media(min-width:1700px) and (min-height:1000px){.app-shell>main{padding-top:20px}.intro{margin-bottom:20px}.intro h1{font-size:30px}.comparison .report-preview{height:270px}.comparison .comparison-metrics strong{font-size:30px}.occupancy{padding-top:20px;padding-bottom:20px}}
+@media(max-width:1500px){.demo-grid{grid-template-columns:1fr}.monitor{display:grid;grid-template-columns:1.15fr 1fr}.monitor .panel-heading{grid-column:1/-1}.monitor .picture{grid-column:1;grid-row:2/4;align-self:center}.monitor .video-controls{grid-column:1;grid-row:4;border-top:1px solid var(--border);border-bottom:0}.monitor .occupancy{grid-column:2;grid-row:2/4;border-left:1px solid var(--border);padding:24px}.monitor .live-result{grid-column:2;grid-row:4;border-left:1px solid var(--border);min-height:52px;padding:12px 18px}.monitor .live-result .result-icon{display:none}.monitor .live-result small{display:none}.monitor .edit-toolbar{grid-column:1/-1;grid-row:5}.comparison .report-preview{height:280px}.comparison .lane-heading strong{font-size:22px}.comparison .phase{font-size:11px}.comparison .live-summary{min-height:90px}.comparison .live-summary p{font-size:12px}}
+@media(max-width:700px){.monitor{display:flex}.monitor .picture{width:100%}.monitor .occupancy{border-left:0;padding:20px}.monitor .video-controls{border-top:0;border-bottom:1px solid var(--border)}.monitor .live-result{border-left:0;width:100%;min-height:65px}.monitor .live-result small{display:block}.comparison .lanes{grid-template-columns:1fr;gap:16px}.comparison .report-preview{height:290px;font-size:14px}.comparison .pipeline-lane{padding:16px 16px 0}.comparison .phase{font-size:11px}.comparison .phase-icon{width:28px;height:28px}.comparison .lane-heading>div:first-child small{font-size:10px}.comparison .lane-time>b{font-size:26px}.comparison .lane-time>span{font-size:10px}.comparison .live-summary{display:block}.comparison .live-summary button{margin-top:12px}.replay-actions .primary{max-width:170px;white-space:normal;font-size:10px}.intro h1{font-size:23px}.intro p{font-size:11px}.intro-proof strong{font-size:28px}}
+
+.intro .eyebrow{display:none}.intro h1{margin-top:0;font-size:28px}.intro{margin-bottom:16px}
+.comparison .live-summary{min-height:64px;padding-top:12px;padding-bottom:12px}
+.comparison .report-preview{line-height:1.65}
+.analysis-section{margin-bottom:10px}.analysis-section.conclusion{padding-top:8px;padding-bottom:8px;margin-bottom:12px}
+@media(min-width:1700px) and (min-height:1000px){.intro h1{font-size:28px}.intro{margin-bottom:16px}.comparison .report-preview{height:260px}}

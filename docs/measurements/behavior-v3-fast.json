@@ -1,0 +1,314 @@
+{
+  "description": "Historical Chinese behavior-v3-fast measurements before multilingual support. Aggregate statistics only; raw runtime evidence is not distributed.",
+  "benchmark_id": "bench-d5d306d299",
+  "language": "zh",
+  "event_id": "EVT-e2fa2437d14c",
+  "hardware": "Jetson AGX Orin 32GB",
+  "jetpack": "6.2.1",
+  "llama_cpp_commit": "31288c9",
+  "model": "Qwen3.5-4B-Q4_K_M.gguf",
+  "method": "sequential_alternating_AB_BA",
+  "summary": {
+    "off": {
+      "valid": 5,
+      "failed": 0,
+      "ttft_ms": {
+        "mean": 640.0046155991731,
+        "median": 636.2504139979137,
+        "min": 635.3127040056279,
+        "max": 655.8745399961481
+      },
+      "tool_decision_ms": {
+        "mean": 1963.0556271993555,
+        "median": 1953.5814150003716,
+        "min": 1952.767244001734,
+        "max": 1994.3651829962619
+      },
+      "tool_execution_ms": {
+        "mean": 23.697355992044322,
+        "median": 14.62063098733779,
+        "min": 14.060834990232252,
+        "max": 60.44547600322403
+      },
+      "report_generation_ms": {
+        "mean": 5405.091305600945,
+        "median": 5408.011833002092,
+        "min": 5392.252514997381,
+        "max": 5413.792060004198
+      },
+      "total_task_ms": {
+        "mean": 7420.092741202097,
+        "median": 7420.611997004016,
+        "min": 7389.35004400264,
+        "max": 7449.9285420024535
+      },
+      "decode_tokens_per_sec": {
+        "mean": 25.476875894707234,
+        "median": 25.464219421158084,
+        "min": 25.399716904558783,
+        "max": 25.580962737288672
+      },
+      "output_tokens": {
+        "mean": 115,
+        "median": 115,
+        "min": 115,
+        "max": 115
+      },
+      "draft_acceptance_rate": null,
+      "prefill_ms": {
+        "mean": 867.1596,
+        "median": 866.014,
+        "min": 865.584,
+        "max": 870.582
+      },
+      "model_load_ms": {
+        "mean": 3720.1029692048905,
+        "median": 3564.110454011825,
+        "min": 3536.8903369962936,
+        "max": 4147.505373010063
+      }
+    },
+    "on": {
+      "valid": 5,
+      "failed": 0,
+      "ttft_ms": {
+        "mean": 685.1490504021058,
+        "median": 679.1089810139965,
+        "min": 673.5709689965006,
+        "max": 703.472402994521
+      },
+      "tool_decision_ms": {
+        "mean": 1394.8373060004087,
+        "median": 1386.3745890121209,
+        "min": 1377.45984600042,
+        "max": 1425.254841989954
+      },
+      "tool_execution_ms": {
+        "mean": 41.55401099997107,
+        "median": 14.528104991768487,
+        "min": 14.260161988204345,
+        "max": 149.48199401260354
+      },
+      "report_generation_ms": {
+        "mean": 3237.930234603118,
+        "median": 3235.618449994945,
+        "min": 3219.165262009483,
+        "max": 3252.756625006441
+      },
+      "total_task_ms": {
+        "mean": 4694.176509801764,
+        "median": 4664.34305900475,
+        "min": 4632.94115800818,
+        "max": 4809.543834999204
+      },
+      "decode_tokens_per_sec": {
+        "mean": 50.571843729729416,
+        "median": 50.60346855704653,
+        "min": 50.30653892336064,
+        "max": 50.83625641807737
+      },
+      "output_tokens": {
+        "mean": 115,
+        "median": 115,
+        "min": 115,
+        "max": 115
+      },
+      "draft_acceptance_rate": {
+        "mean": 0.9615384615384616,
+        "median": 0.9615384615384616,
+        "min": 0.9615384615384616,
+        "max": 0.9615384615384616
+      },
+      "prefill_ms": {
+        "mean": 921.9612,
+        "median": 922.207,
+        "min": 915.904,
+        "max": 925.873
+      },
+      "model_load_ms": {
+        "mean": 5000.94490419724,
+        "median": 5047.547226000461,
+        "min": 4582.008264987962,
+        "max": 5401.088230995811
+      }
+    },
+    "pairs": [
+      {
+        "pair": 1,
+        "decode_speedup": 1.9779383762549607,
+        "task_speedup": 1.5947776556966893
+      },
+      {
+        "pair": 2,
+        "decode_speedup": 1.9842089603838056,
+        "task_speedup": 1.5721594813179955
+      },
+      {
+        "pair": 3,
+        "decode_speedup": 1.9883672253726075,
+        "task_speedup": 1.5489885938431596
+      },
+      {
+        "pair": 4,
+        "decode_speedup": 1.9872690852238624,
+        "task_speedup": 1.6017065064979863
+      },
+      {
+        "pair": 5,
+        "decode_speedup": 1.987238160341973,
+        "task_speedup": 1.5870966885928892
+      }
+    ],
+    "decode_speedup": 1.987238160341973,
+    "task_speedup": 1.5870966885928892,
+    "accepted": true
+  },
+  "runs": [
+    {
+      "pair": 1,
+      "mode": "off",
+      "status": "completed",
+      "total_task_ms": 7438.59008900472,
+      "tool_decision_ms": 1952.767244001734,
+      "report_generation_ms": 5408.011833002092,
+      "ttft_ms": 635.8985849947203,
+      "model_load_ms": 3562.7724469959503,
+      "output_tokens": 115,
+      "decode_tokens_per_sec": 25.43382520268974,
+      "draft_acceptance_rate": null
+    },
+    {
+      "pair": 1,
+      "mode": "on",
+      "status": "completed",
+      "total_task_ms": 4664.34305900475,
+      "tool_decision_ms": 1377.45984600042,
+      "report_generation_ms": 3252.756625006441,
+      "ttft_ms": 673.5709689965006,
+      "model_load_ms": 4582.008264987962,
+      "output_tokens": 115,
+      "decode_tokens_per_sec": 50.30653892336064,
+      "draft_acceptance_rate": 0.9615384615384616
+    },
+    {
+      "pair": 2,
+      "mode": "on",
+      "status": "completed",
+      "total_task_ms": 4708.16295799159,
+      "tool_decision_ms": 1425.254841989954,
+      "report_generation_ms": 3248.7182400072925,
+      "ttft_ms": 703.472402994521,
+      "model_load_ms": 5401.088230995811,
+      "output_tokens": 115,
+      "decode_tokens_per_sec": 50.39834587323755,
+      "draft_acceptance_rate": 0.9615384615384616
+    },
+    {
+      "pair": 2,
+      "mode": "off",
+      "status": "completed",
+      "total_task_ms": 7401.9830339966575,
+      "tool_decision_ms": 1953.5814150003716,
+      "report_generation_ms": 5413.792060004198,
+      "ttft_ms": 636.2504139979137,
+      "model_load_ms": 3536.8903369962936,
+      "output_tokens": 115,
+      "decode_tokens_per_sec": 25.399716904558783,
+      "draft_acceptance_rate": null
+    },
+    {
+      "pair": 3,
+      "mode": "off",
+      "status": "completed",
+      "total_task_ms": 7449.9285420024535,
+      "tool_decision_ms": 1961.5697379922494,
+      "report_generation_ms": 5408.473689007224,
+      "ttft_ms": 636.6868350014556,
+      "model_load_ms": 3564.110454011825,
+      "output_tokens": 115,
+      "decode_tokens_per_sec": 25.50565520784089,
+      "draft_acceptance_rate": null
+    },
+    {
+      "pair": 3,
+      "mode": "on",
+      "status": "completed",
+      "total_task_ms": 4809.543834999204,
+      "tool_decision_ms": 1406.0378949943697,
+      "report_generation_ms": 3233.3925959974295,
+      "ttft_ms": 695.5679889942985,
+      "model_load_ms": 5047.547226000461,
+      "output_tokens": 115,
+      "decode_tokens_per_sec": 50.714608876924984,
+      "draft_acceptance_rate": 0.9615384615384616
+    },
+    {
+      "pair": 4,
+      "mode": "on",
+      "status": "completed",
+      "total_task_ms": 4632.94115800818,
+      "tool_decision_ms": 1379.059358005179,
+      "report_generation_ms": 3219.165262009483,
+      "ttft_ms": 674.0249100112123,
+      "model_load_ms": 4597.420539997984,
+      "output_tokens": 115,
+      "decode_tokens_per_sec": 50.83625641807737,
+      "draft_acceptance_rate": 0.9615384615384616
+    },
+    {
+      "pair": 4,
+      "mode": "off",
+      "status": "completed",
+      "total_task_ms": 7420.611997004016,
+      "tool_decision_ms": 1994.3651829962619,
+      "report_generation_ms": 5392.252514997381,
+      "ttft_ms": 655.8745399961481,
+      "model_load_ms": 4147.505373010063,
+      "output_tokens": 115,
+      "decode_tokens_per_sec": 25.580962737288672,
+      "draft_acceptance_rate": null
+    },
+    {
+      "pair": 5,
+      "mode": "off",
+      "status": "completed",
+      "total_task_ms": 7389.35004400264,
+      "tool_decision_ms": 1952.9945560061606,
+      "report_generation_ms": 5402.92643099383,
+      "ttft_ms": 635.3127040056279,
+      "model_load_ms": 3789.2362350103213,
+      "output_tokens": 115,
+      "decode_tokens_per_sec": 25.464219421158084,
+      "draft_acceptance_rate": null
+    },
+    {
+      "pair": 5,
+      "mode": "on",
+      "status": "completed",
+      "total_task_ms": 4655.891539005097,
+      "tool_decision_ms": 1386.3745890121209,
+      "report_generation_ms": 3235.618449994945,
+      "ttft_ms": 679.1089810139965,
+      "model_load_ms": 5376.660259003984,
+      "output_tokens": 115,
+      "decode_tokens_per_sec": 50.60346855704653,
+      "draft_acceptance_rate": 0.9615384615384616
+    }
+  ],
+  "measured_source_hashes": {
+    "backend/main.py": "4f7c665d909289540bf2940693df5173af1fec8ba77b8574d9411a5f7b0640e4",
+    "backend/vision.py": "b943b3669dd89a6c788ebdb6aebfe81026aea48b97f36390f80068bc8dde3e97",
+    "backend/gguf_probe.py": "0251d88a1b6452d7bfe66bd51b5604822eb9963cc90fbddcee0c231030d8ef96",
+    "backend/domain.py": "fcf5425053349a4c1e604b0cf0296b23a7797a5cf8afac5719f9b45e1fcaa826",
+    "backend/config.py": "6db782b9a19c7350fac6e9d55aca7af24ac31943aaf8263668655599cb9449ae",
+    "backend/storage.py": "bbc2e5eafee9a7a9991af0ef53168795503ef0f7bf62278ffc324a7639d4bdb7",
+    "backend/behavior.py": "7ec45baefe5957567d598f88173633d9de55a2d12d310da01fca804995c7aedf",
+    "backend/video.py": "024eb871677ffd1b5ebd09f9ab54dfe76490b3fcf62580af5ffe5130d0b15202",
+    "backend/process.py": "d7eb5bba494a36f7dbd5567aabee3f4835d50206c5cecba6130c0863dd53bae0",
+    "backend/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "backend/agent.py": "6279f538c73d19c7fa68f2bcba6d7ed5a3e39496d6431b19276d509abceff5ef",
+    "backend/benchmark.py": "226cbae783a84f07119164b7278eeb2cec3eeda8773c1d9c13a7d763f352a6be",
+    "backend/prompts.py": "9a56d553083c222b727ba5cc00bfb6bea3427e6a00a4d798343056b61c585aa2",
+    "backend/metrics.py": "aa8c3784a4c4e85030c6d443427a3797e2b270c01a328b918952debea33d4e63"
+  }
+}

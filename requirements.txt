@@ -1,0 +1,11 @@
+fastapi==0.115.12
+uvicorn==0.34.2
+httpx==0.28.1
+pydantic==2.11.4
+python-multipart==0.0.20
+websockets==15.0.1
+numpy==2.2.6
+opencv-python==5.0.0.93
+supervision==0.27.0
+pytest==8.3.5
+pytest-asyncio==0.26.0

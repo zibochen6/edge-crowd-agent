@@ -1,0 +1,148 @@
+/* Recording console: the two primary surfaces always share the viewport. */
+html,body,#root{height:100%;margin:0}
+body{overflow:hidden}
+.capture-shell{height:100dvh;min-height:0;display:flex;flex-direction:column;overflow:hidden}
+.capture-shell .app-header{height:64px;min-height:64px;padding:0 24px;gap:16px}
+.capture-shell .brand{gap:12px}.capture-shell .brand strong{font-size:20px}.capture-shell .brand-mark{width:36px;height:36px;border-radius:10px}
+.capture-shell .brand-caption{font-size:11px}.capture-shell .header-right{gap:16px}.capture-shell .header-right button{font-size:12px}
+.capture-shell>main{width:100%;max-width:none;margin:0;padding:16px 24px 0;display:flex;flex:1;flex-direction:column;min-height:0;gap:16px;overflow:hidden}
+.capture-toolbar{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-shrink:0;min-height:56px}
+.capture-title h1{font-size:22px;letter-spacing:0;font-weight:600;line-height:1.3;margin:0 0 8px}
+.capture-title p{margin:0;color:#7f98aa;font-size:10px;letter-spacing:.6px}
+.demo-launch{display:flex;align-items:center;gap:16px;flex-shrink:0}
+.mode-selector{display:flex;background:#101923;border:1px solid var(--border);padding:4px;gap:4px;border-radius:8px}
+.mode-selector button{min-height:36px;background:transparent;border:1px solid transparent;color:#849bac;min-width:112px;justify-content:center;font-size:14px;font-weight:600}
+.mode-selector button.selected.off{background:#293e50;border-color:#658299;color:#d7e9f4}
+.mode-selector button.selected.on{background:#244c3b;border-color:#588b72;color:#b3e5ce}
+.capture-shell .start-demo{height:46px;min-width:170px;justify-content:center;font-size:13px}
+.capture-shell.mode-on .start-demo{background:#a9d9c1;border-color:#a9d9c1;color:#11281e}
+.capture-shell .demo-grid{display:grid;grid-template-columns:minmax(0,1.14fr) minmax(0,1fr);gap:20px;flex:1;min-height:0;align-items:stretch}
+.capture-shell .panel{min-width:0;min-height:0;overflow:hidden;border-radius:12px}
+.capture-shell .panel-heading{height:48px;min-height:48px;padding:0 16px;flex-shrink:0}
+.capture-shell .panel-heading h2{font-size:14px}.capture-shell .panel-heading .subtle{font-size:10px}
+.capture-shell .monitor{display:flex;flex-direction:column}
+.capture-shell .monitor>*{grid-column:auto;grid-row:auto}
+.capture-shell .video-stage{flex:1;min-height:0;display:grid;place-items:center;container-type:size;background:#080e13;overflow:hidden}
+.capture-shell .picture{width:min(100cqw,177.777778cqh);max-width:100%;flex-shrink:0;align-self:auto;overflow:hidden}
+.capture-shell .picture img{width:100%;height:100%;object-fit:contain}
+.capture-shell .video-top{top:12px;left:12px;right:12px}.capture-shell .video-top>span{font-size:10px;padding:6px 8px}
+.capture-shell .video-controls{height:48px;min-height:48px;padding:8px 16px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);flex-shrink:0;gap:12px}
+.capture-shell .video-controls button{min-height:28px;min-width:28px;padding:4px}.capture-shell .video-controls>span{font-size:11px}
+.capture-shell .occupancy{position:relative;flex:0 0 auto;display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto auto;gap:8px 24px;padding:16px 20px;border-left:0}
+.capture-shell .occupancy-top{grid-column:1/-1;font-size:12px}.capture-shell .state-label{font-size:11px}
+.capture-shell .count-line{grid-column:1;grid-row:2/5;gap:24px;margin:0;justify-content:flex-start;align-self:center}
+.capture-shell .count-line>strong{font-size:56px;line-height:1;letter-spacing:-1px}.capture-shell .count-line>strong>small{font-size:13px;margin-left:8px}
+.capture-shell .threshold{font-size:10px;min-width:92px;padding-left:16px}.capture-shell .threshold b{font-size:20px;margin-top:4px}
+.capture-shell .rule-line{grid-column:2;font-size:11px;gap:8px;margin:4px 0 0;align-self:end}
+.capture-shell .trigger-track{grid-column:2;align-self:center}
+.capture-shell .occupancy>p{grid-column:2;margin:0;font-size:10px;line-height:1.6;color:#98afbf}
+.capture-shell .edit-toolbar{flex-shrink:0;padding:8px 16px}.capture-shell .edit-toolbar button{font-size:11px;min-height:28px}
+.capture-shell .recording-analysis{display:flex;flex-direction:column}
+.capture-shell .recording-analysis .shared-input{padding:12px 16px;min-height:66px;flex-shrink:0}
+.capture-shell .recording-analysis .shared-input strong{font-size:14px}.capture-shell .recording-analysis .shared-input small{font-size:11px;margin-top:6px}
+.capture-shell .recording-analysis .lanes{display:flex;padding:16px 16px 0;flex:1;min-height:0}
+.capture-shell .recording-analysis .pipeline-lane{flex:1;min-height:0;display:flex;flex-direction:column;padding:20px 20px 0;border-radius:8px}
+.capture-shell .recording-analysis .lane-heading{min-height:52px;flex-shrink:0;align-items:flex-start}
+.capture-shell .recording-analysis .lane-heading strong{font-size:30px;letter-spacing:.5px}
+.capture-shell .recording-analysis .lane-heading small{font-size:11px;margin-top:6px}
+.capture-shell .recording-analysis .lane-time>b{font-size:36px;color:#deebf5;letter-spacing:-1px}
+.capture-shell .recording-analysis .on .lane-time>b{color:#b9e7d1}
+.capture-shell .recording-analysis .lane-time>span{font-size:11px;margin-top:6px}
+.capture-shell .recording-analysis .pipeline-steps{margin:20px 0;gap:16px;flex-shrink:0}
+.capture-shell .recording-analysis .phase{font-size:12px;gap:8px;flex-direction:row;white-space:nowrap}
+.capture-shell .recording-analysis .phase-icon{width:32px;height:32px}
+.capture-shell .recording-analysis .phase-arrow{top:9px;right:-12px}
+.capture-shell .recording-analysis .lane-output{flex:1;display:flex;flex-direction:column;align-items:stretch;gap:0;padding-top:16px;min-height:0}
+.capture-shell .recording-analysis .analysis-heading{flex-shrink:0;margin-bottom:16px}
+.capture-shell .recording-analysis .analysis-heading>span{font-size:14px}
+.capture-shell .recording-analysis .analysis-heading button{font-size:11px}
+.capture-shell .recording-analysis .report-preview{flex:1;height:auto;min-height:0;line-height:1.7;font-size:16px;padding-right:8px;scrollbar-width:thin}
+.capture-shell .recording-analysis .analysis-section{margin:0 0 16px}
+.capture-shell .recording-analysis .analysis-section h3{font-size:12px;margin-bottom:8px;color:#9db4c5}
+.capture-shell .recording-analysis .analysis-section p{font-size:16px;line-height:1.7}
+.capture-shell .recording-analysis .analysis-section.conclusion{padding:12px 16px;margin-bottom:20px}
+.capture-shell .recording-analysis .analysis-section.conclusion h3{font-size:13px;color:#efbd7b}
+.capture-shell .recording-analysis .analysis-section.conclusion p{font-size:18px;line-height:1.65}
+.capture-shell .recording-analysis .analysis-placeholder{min-height:0;height:100%;padding:24px 16px;gap:16px}
+.capture-shell .recording-analysis .analysis-placeholder strong{font-size:18px}.capture-shell .recording-analysis .analysis-placeholder p{font-size:14px;max-width:360px;line-height:1.8}
+.capture-shell .recording-analysis .lane-bottom{flex-shrink:0;padding:16px 0;font-size:11px;margin-top:8px}
+.capture-shell .recording-analysis .duration-track{margin:0 -20px;flex-shrink:0}
+.capture-shell .run-evidence{display:flex;flex-shrink:0;align-items:center;justify-content:space-between;gap:16px;padding:12px 16px;color:#8099ac;font-size:10px}
+.capture-shell .run-evidence>span:first-child{display:flex;align-items:center;gap:8px;white-space:nowrap}
+.capture-shell .run-error{font-size:12px;padding:0 16px;max-height:48px;overflow:auto;color:var(--amber)}
+.capture-shell .demo-caption{height:24px;min-height:24px;padding:0 0 8px;flex-shrink:0;font-size:10px;margin-top:-8px}
+.capture-shell .banner{position:fixed;bottom:32px;left:24px;max-width:min(640px,80vw);z-index:12;margin:0;box-shadow:0 8px 32px #0006}
+.capture-shell .drawer:has(.replay-drawer){width:min(1080px,96vw)}
+.capture-shell .replay-drawer .lanes{padding:0}.capture-shell .replay-drawer .report-preview{height:300px}
+.capture-shell button:focus-visible,.capture-shell a:focus-visible{outline:2px solid #a5c4d8;outline-offset:3px}
+@media(max-width:1700px), (max-height:1000px){
+ .capture-shell .app-header{padding:0 20px;height:56px;min-height:56px}.capture-shell .brand-caption{display:none}
+ .capture-shell .header-right{gap:12px}.capture-shell>main{padding:12px 20px 0;gap:12px}
+ .capture-title h1{font-size:20px}.capture-toolbar{min-height:52px}.capture-shell .demo-grid{gap:16px;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr)}
+ .capture-shell .occupancy{padding:12px 16px;gap:8px 16px}.capture-shell .count-line{gap:16px}.capture-shell .count-line>strong{font-size:48px}
+ .capture-shell .threshold{min-width:80px;padding-left:12px}.capture-shell .threshold b{font-size:18px}.capture-shell .rule-line{font-size:10px}
+ .capture-shell .recording-analysis .pipeline-lane{padding:16px 16px 0}.capture-shell .recording-analysis .duration-track{margin:0 -16px}
+ .capture-shell .recording-analysis .lane-heading strong{font-size:26px}.capture-shell .recording-analysis .lane-time>b{font-size:32px}
+ .capture-shell .recording-analysis .phase{font-size:11px;flex-direction:column}.capture-shell .recording-analysis .phase-arrow{top:8px;right:-12px}
+ .capture-shell .recording-analysis .pipeline-steps{margin:16px 0}.capture-shell .recording-analysis .report-preview,.capture-shell .recording-analysis .analysis-section p{font-size:14px}
+ .capture-shell .recording-analysis .analysis-section.conclusion p{font-size:16px}.capture-shell .recording-analysis .analysis-section.conclusion{padding:12px;margin-bottom:16px}
+ .capture-shell .recording-analysis .analysis-section{margin-bottom:12px}.capture-shell .recording-analysis .analysis-section h3{margin-bottom:6px}
+ .capture-shell .recording-analysis .analysis-heading{margin-bottom:12px}.capture-shell .recording-analysis .lane-output{padding-top:12px}
+ .capture-shell .run-evidence{font-size:9px;gap:8px}.capture-shell .demo-caption{font-size:9px;margin-top:-4px}
+}
+@media(max-height:880px){
+ .capture-shell .app-header{height:52px;min-height:52px}.capture-shell>main{gap:12px;padding-top:12px}
+ .capture-toolbar{min-height:44px}.capture-title h1{font-size:18px;margin-bottom:4px}.capture-title p{font-size:9px}
+ .capture-shell .panel-heading{height:40px;min-height:40px}.capture-shell .recording-analysis .shared-input{min-height:56px;padding:8px 16px}
+ .capture-shell .recording-analysis .lanes{padding:12px 12px 0}.capture-shell .recording-analysis .pipeline-lane{padding:12px 16px 0}
+ .capture-shell .recording-analysis .lane-heading{min-height:44px}.capture-shell .recording-analysis .lane-heading strong{font-size:26px}.capture-shell .recording-analysis .lane-heading small{font-size:10px}
+ .capture-shell .recording-analysis .lane-time>b{font-size:30px}.capture-shell .recording-analysis .pipeline-steps{margin:12px 0}
+ .capture-shell .recording-analysis .phase-icon{width:28px;height:28px}.capture-shell .recording-analysis .phase{font-size:10px;gap:6px}
+ .capture-shell .recording-analysis .lane-output{padding-top:12px}.capture-shell .recording-analysis .analysis-heading{margin-bottom:8px}
+ .capture-shell .recording-analysis .analysis-section{margin-bottom:12px}.capture-shell .recording-analysis .analysis-section h3{margin-bottom:4px}
+ .capture-shell .recording-analysis .analysis-section.conclusion{padding:8px 12px;margin-bottom:12px}
+ .capture-shell .recording-analysis .report-preview,.capture-shell .recording-analysis .analysis-section p{font-size:13px;line-height:1.6}
+ .capture-shell .recording-analysis .analysis-section.conclusion p{font-size:15px;line-height:1.6}
+ .capture-shell .recording-analysis .lane-bottom{padding:8px 0;font-size:10px;margin-top:4px}.capture-shell .run-evidence{padding:8px 12px}
+ .capture-shell .occupancy{padding:12px 16px;gap:6px 16px}.capture-shell .count-line>strong{font-size:44px}.capture-shell .video-controls{min-height:40px;height:40px;padding:4px 12px}
+ .capture-shell .demo-caption{height:20px;min-height:20px;font-size:9px;padding-bottom:4px}
+}
+@media(max-width:1150px){
+ .capture-shell .brand strong{font-size:17px}.capture-shell .header-right{gap:8px}.capture-shell .header-right .connection{font-size:10px}
+ .capture-shell .header-right button{font-size:11px;padding:8px}.capture-shell>main{padding-left:12px;padding-right:12px}
+ .capture-title h1{font-size:17px}.demo-launch{gap:8px}.mode-selector button{min-width:88px;font-size:12px}.capture-shell .start-demo{min-width:144px;font-size:12px}
+ .capture-shell .count-line{gap:12px}.capture-shell .count-line>strong{font-size:40px}.capture-shell .threshold{min-width:68px;padding-left:8px}
+ .capture-shell .occupancy{gap:8px 12px}.capture-shell .rule-line>span:last-child{display:none}.capture-shell .frozen-tag{display:none}
+ .capture-shell .run-evidence{flex-wrap:wrap;gap:4px}.capture-shell .demo-caption>span:last-child{max-width:none;text-align:right}
+}
+@media(min-width:761px) and (max-height:740px){
+ .capture-shell .recording-analysis .pipeline-steps{margin:8px 0}
+ .capture-shell .recording-analysis .phase{flex-direction:row;font-size:10px;gap:6px}
+ .capture-shell .recording-analysis .phase-arrow{top:7px;right:-12px;width:12px}
+ .capture-shell .recording-analysis .lanes{padding-top:8px}
+ .capture-shell .recording-analysis .analysis-section{margin-bottom:8px}
+ .capture-shell .recording-analysis .analysis-section.conclusion{margin-bottom:8px}
+}
+/* Small phones remain usable; recording layouts above never stack. */
+@media(max-width:760px){
+ body{overflow:auto}.capture-shell{height:auto;min-height:100dvh;overflow:visible}.capture-shell>main{overflow:visible}
+ .capture-shell .app-header{padding:0 12px}.capture-shell .header-right .connection,.capture-shell .brand-caption{display:none}
+ .capture-shell .header-right button{font-size:0}.capture-shell .header-right button svg{width:16px}.capture-shell .header-right button span{display:none}
+ .capture-toolbar{flex-wrap:wrap;gap:12px}.capture-title{width:100%}.capture-shell .demo-grid{grid-template-columns:1fr;flex:none}
+ .capture-shell .video-stage{flex:none;height:52vw;max-height:360px}.capture-shell .recording-analysis{height:680px}.capture-shell .demo-caption{height:auto;flex-wrap:wrap;margin:0;padding:8px 0}
+}
+.language-picker{display:flex;align-items:center;gap:8px;color:#9bb1c1;font-size:11px}
+.language-picker>span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.language-picker select{background:transparent;font-size:12px;padding:4px 8px;min-height:32px}
+.report-language-note{color:#7f99ad;font-size:9px;font-weight:400;margin-left:8px;letter-spacing:0}
+html[lang=en] .capture-shell .recording-analysis .phase{font-size:10px}
+html[lang=en] .capture-shell .recording-analysis .lane-heading small{font-size:10px}
+html[lang=en] .capture-shell .brand-caption{display:none}
+@media(max-width:1350px){html[lang=en] .capture-shell .capture-title h1{font-size:17px}.capture-shell .header-right{gap:8px}}
+@media(max-width:1100px){html[lang=en] .capture-shell .capture-title h1{font-size:14px}.language-picker select{max-width:92px;font-size:11px}}
+@media(min-width:761px) and (max-height:740px){
+ html[lang=en] .capture-shell .recording-analysis .analysis-section{margin-bottom:4px}
+ html[lang=en] .capture-shell .recording-analysis .analysis-section.conclusion{margin-bottom:4px}
+ html[lang=en] .capture-shell .recording-analysis .lane-output{padding-top:8px}
+ html[lang=en] .capture-shell .recording-analysis .analysis-heading{margin-bottom:4px}
+}
